@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre mí — La Biblioteca Gamer</title>
-    <meta name="description"
-        content="Conoce al creador de La Biblioteca Gamer. Recomendaciones honestas, cero relleno, curaduría de verdad.">
+    <title>Lista de Deseados — La Biblioteca Gamer</title>
+    <meta name="description" content="Tu lista de deseados personal. Guarda los juegos que quieres jugar.">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -18,73 +17,40 @@
                     height="36"><span>Biblioteca Gamer</span></a>
             <nav class="nav-links">
                 <a href="biblioteca.html">Biblioteca</a>
-                <a href="deseados.html">Lista de deseados</a>
-                <a href="sobre-mi.html" class="active">Sobre mí</a>
+                <a href="deseados.html" class="active">Lista de deseados</a>
+                <a href="sobre-mi.html">Sobre mí</a>
                 <a href="contacto.html">Contacto</a>
             </nav>
             <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
         </div>
     </header>
     <nav class="mobile-nav">
-        <a href="index.html">Inicio</a><a href="biblioteca.html">Biblioteca</a><a href="deseados.html">Lista de
-            deseados</a><a href="sobre-mi.html">Sobre mí</a><a href="contacto.html">Contacto</a>
+        <a href="index.html">Inicio</a>
+        <a href="biblioteca.html">Biblioteca</a>
+        <a href="deseados.html">Lista de deseados</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
     </nav>
 
-    <section class="about-hero">
+    <section class="biblioteca-header">
         <div class="container">
-            <div class="about-content">
-                <div class="about-img fade-in">🎮</div>
-                <div class="about-text fade-in">
-                    <span class="section-label">Sobre mí</span>
-                    <h1>Esto es La Biblioteca Gamer</h1>
-                    <p>Llevo años jugando a todo lo que cae en mis manos. Un día me cansé de ver recomendaciones
-                        genéricas, listas de clickbait y vídeos de 20 minutos para decirte lo que se puede decir en 2.
-                    </p>
-                    <p>Así nació La Biblioteca Gamer: un sitio donde te digo <strong>qué jugar y por qué</strong>, sin
-                        rodeos, sin publicidad encubierta, sin relleno.</p>
-                    <p>Cada juego que ves aquí lo he jugado o investigado a fondo. Si no merece tu tiempo, no está en la
-                        biblioteca. Así de simple.</p>
-                </div>
-            </div>
+            <span class="section-label fade-in">Tus juegos guardados</span>
+            <h1 class="fade-in">Lista de Deseados</h1>
+            <p class="fade-in">Los juegos que has marcado con ❤️ aparecen aquí. Se guardan en tu navegador, así que
+                siempre estarán cuando vuelvas.</p>
         </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section" style="padding-top:0">
         <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-label">Mi filosofía</span>
-                <h2>Tres principios que no negocio</h2>
+            <div class="games-grid" id="wishlist-grid">
+                <!-- Filled by JS from localStorage -->
             </div>
-            <div class="values-grid">
-                <div class="value-card fade-in">
-                    <div class="value-icon">🎯</div>
-                    <h3>Curaduría real</h3>
-                    <p>No pongo todos los juegos del mercado. Solo los que de verdad merecen tu tiempo y tu dinero.</p>
-                </div>
-                <div class="value-card fade-in">
-                    <div class="value-icon">✂️</div>
-                    <h3>Cero relleno</h3>
-                    <p>Sin vídeos de 20 minutos, sin intros largas, sin patrocinios ocultos. Al grano siempre.</p>
-                </div>
-                <div class="value-card fade-in">
-                    <div class="value-icon">💬</div>
-                    <h3>Recomendaciones honestas</h3>
-                    <p>Si un juego no me convence, no lo recomiendo aunque sea popular. La honestidad es lo primero.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container fade-in">
-            <h2>¿Te mola lo que hago?</h2>
-            <p>Sígueme en redes para recomendaciones rápidas o suscríbete a la newsletter para recibirlas en tu correo
-                cada semana.</p>
-            <div class="cta-actions">
-                <a href="https://www.tiktok.com/@labibliotecagamer_" target="_blank" rel="noopener"
-                    class="btn btn-primary">Sígueme en TikTok</a>
-                <a href="https://bibliotecagamer.substack.com/subscribe" target="_blank" rel="noopener"
-                    class="btn btn-outline">Suscríbete a la newsletter</a>
+            <div class="wishlist-empty" id="wishlist-empty" style="display:none">
+                <h3>Tu lista está vacía</h3>
+                <p>Explora la <a href="biblioteca.html"
+                        style="color:var(--red);text-decoration:underline">biblioteca</a> y haz clic en el ❤️ de
+                    cualquier juego para añadirlo aquí.</p>
             </div>
         </div>
     </section>

@@ -1428,3 +1428,343 @@ p {
     color: #000
   }
 }
+
+/* --- Game Detail Modal ---------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, .75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s var(--ease);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all
+}
+
+.modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) scale(.97);
+  transition: transform .3s var(--ease);
+}
+
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1)
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--sp-md);
+  right: var(--sp-md);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .5);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: background var(--dur) var(--ease);
+}
+
+.modal-close:hover {
+  background: var(--red)
+}
+
+.modal-hero {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden;
+}
+
+.modal-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg-secondary) 0%, transparent 60%);
+}
+
+.modal-body {
+  padding: var(--sp-lg) var(--sp-xl) var(--sp-xl)
+}
+
+.modal-body h2 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  margin-bottom: var(--sp-sm)
+}
+
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-sm);
+  align-items: center;
+  margin-bottom: var(--sp-lg)
+}
+
+.modal-meta .rating-badge {
+  font-size: .9rem;
+  padding: 5px 12px
+}
+
+.modal-meta .genre-pill {
+  font-size: .72rem;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, .08);
+  border-radius: var(--radius-xl);
+  color: var(--text-secondary);
+  font-family: var(--ff-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.modal-desc {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  line-height: 1.7;
+  margin-bottom: var(--sp-lg)
+}
+
+.modal-desc p {
+  margin-bottom: var(--sp-md)
+}
+
+.modal-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-xl)
+}
+
+@media(max-width:480px) {
+  .modal-info-grid {
+    grid-template-columns: 1fr
+  }
+}
+
+.modal-info-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--sp-md)
+}
+
+.modal-info-item label {
+  display: block;
+  font-family: var(--ff-heading);
+  font-weight: 600;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-xs);
+}
+
+.modal-info-item span {
+  font-size: .9rem;
+  color: var(--text-primary)
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--sp-md);
+  flex-wrap: wrap
+}
+
+.modal-screenshots {
+  margin-bottom: var(--sp-lg)
+}
+
+.modal-screenshots h3 {
+  margin-bottom: var(--sp-md);
+  font-size: 1rem
+}
+
+.modal-screenshots-row {
+  display: flex;
+  gap: var(--sp-sm);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: var(--sp-sm);
+}
+
+.modal-screenshots-row::-webkit-scrollbar {
+  display: none
+}
+
+.modal-screenshots-row img {
+  height: 120px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease);
+}
+
+.modal-screenshots-row img:hover {
+  transform: scale(1.05)
+}
+
+/* --- Wishlist Heart ------------------------------- */
+.wishlist-btn {
+  position: absolute;
+  top: var(--sp-sm);
+  right: var(--sp-sm);
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .5);
+  border: 1px solid rgba(255, 255, 255, .15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+  font-size: .9rem;
+}
+
+.wishlist-btn:hover {
+  background: rgba(225, 6, 0, .8);
+  border-color: var(--red)
+}
+
+.wishlist-btn.active {
+  background: var(--red);
+  border-color: var(--red)
+}
+
+.wishlist-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2
+}
+
+.wishlist-btn.active svg {
+  fill: var(--white)
+}
+
+/* Nav wishlist counter */
+.nav-wishlist {
+  position: relative;
+  display: flex;
+  align-items: center
+}
+
+.nav-wishlist .wishlist-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: var(--red);
+  color: var(--white);
+  font-size: .6rem;
+  font-family: var(--ff-heading);
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.nav-wishlist svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--text-secondary);
+  fill: none;
+  stroke-width: 2
+}
+
+.nav-wishlist:hover svg {
+  stroke: var(--red)
+}
+
+/* --- Buy Button ----------------------------------- */
+.btn-buy {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(238, 9, 121, .3);
+}
+
+.btn-buy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(238, 9, 121, .4)
+}
+
+/* --- TikTok Feed Section -------------------------- */
+.tiktok-feed {
+  padding: var(--sp-2xl) 0 var(--sp-lg)
+}
+
+.tiktok-feed-scroll {
+  display: flex;
+  gap: var(--sp-md);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: var(--sp-sm);
+}
+
+.tiktok-feed-scroll::-webkit-scrollbar {
+  display: none
+}
+
+.tiktok-embed-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 320px;
+  min-height: 580px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.tiktok-embed-card blockquote {
+  margin: 0 !important
+}
+
+.tiktok-embed-card iframe {
+  width: 100% !important;
+  border: none !important
+}
+
+/* --- Wishlist Page -------------------------------- */
+.wishlist-empty {
+  text-align: center;
+  padding: var(--sp-3xl);
+  color: var(--text-muted);
+}
+
+.wishlist-empty h3 {
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-sm)
+}
