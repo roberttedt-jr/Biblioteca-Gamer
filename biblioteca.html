@@ -25,7 +25,7 @@
     <header class="site-header" role="banner">
         <div class="container header-inner">
             <a href="index.html" class="header-logo" aria-label="Inicio — La Biblioteca Gamer">
-                <img src="assets/logo.png" alt="Logo La Biblioteca Gamer" width="40" height="40">
+                <img src="assets/logo.png" alt="Logo La Biblioteca Gamer" width="36" height="36">
                 <span>Biblioteca Gamer</span>
             </a>
             <nav class="nav-links" aria-label="Navegación principal">
@@ -50,8 +50,7 @@
         <div class="container">
             <span class="section-label fade-in">Explora y descubre</span>
             <h1 class="fade-in">Biblioteca</h1>
-            <p class="hero-sub fade-in" style="max-width:520px;margin:var(--sp-sm) auto var(--sp-xl)">Todos los juegos
-                que recomiendo, filtrados y listos para ti.</p>
+            <p class="fade-in">Todos los juegos, filtrados y listos para ti. Busca por nombre o filtra por género.</p>
 
             <!-- Search -->
             <div class="search-bar fade-in">
@@ -64,370 +63,26 @@
                 <input type="text" id="search-input" placeholder="Buscar juego por nombre…" aria-label="Buscar juegos">
             </div>
 
-            <!-- Filters -->
-            <div class="filters fade-in">
-                <button class="filter-btn active" data-filter="todos">Todos</button>
-                <button class="filter-btn" data-filter="accion">Acción</button>
-                <button class="filter-btn" data-filter="aventura">Aventura</button>
-                <button class="filter-btn" data-filter="casual">Casual</button>
-                <button class="filter-btn" data-filter="simulacion">Simulación</button>
-                <button class="filter-btn" data-filter="estrategia">Estrategia</button>
-                <button class="filter-btn" data-filter="terror">Terror</button>
-                <button class="filter-btn" data-filter="indie">Indies</button>
-                <button class="filter-btn" data-filter="coop">Coop</button>
-                <button class="filter-btn" data-filter="gratis">Gratis</button>
+            <!-- Filters (genre buttons loaded dynamically from API) -->
+            <div class="filters fade-in" id="filters-container">
+                <button class="filter-btn active" data-genre="">Todos</button>
+                <!-- More filters added by JS from /api/genres -->
             </div>
         </div>
     </section>
 
     <section class="section" style="padding-top:0">
         <div class="container">
-            <div class="games-grid">
-
-                <!-- 1 -->
-                <div class="game-card fade-in" data-tags="accion aventura"
-                    data-name="the legend of zelda: tears of the kingdom">
-                    <div class="game-card-img">🗡️</div>
-                    <div class="game-card-body">
-                        <h3>The Legend of Zelda: Tears of the Kingdom</h3>
-                        <p class="game-reason">Libertad absoluta para resolver puzzles de 100 formas distintas. Una obra
-                            maestra.</p>
-                        <div class="game-tags"><span class="game-tag">Acción</span><span
-                                class="game-tag">Aventura</span></div>
-                        <span class="game-platforms">Switch</span>
-                    </div>
-                </div>
-
-                <!-- 2 -->
-                <div class="game-card fade-in" data-tags="accion" data-name="god of war ragnarök">
-                    <div class="game-card-img">⚔️</div>
-                    <div class="game-card-body">
-                        <h3>God of War Ragnarök</h3>
-                        <p class="game-reason">Combate brutal, historia emotiva y una relación padre-hijo inolvidable.
-                        </p>
-                        <div class="game-tags"><span class="game-tag">Acción</span></div>
-                        <span class="game-platforms">PS5 · PS4 · PC</span>
-                    </div>
-                </div>
-
-                <!-- 3 -->
-                <div class="game-card fade-in" data-tags="aventura indie" data-name="hollow knight">
-                    <div class="game-card-img">🦋</div>
-                    <div class="game-card-body">
-                        <h3>Hollow Knight</h3>
-                        <p class="game-reason">Metroidvania perfecto. Exploración, combate exigente y un mundo gigante
-                            por descubrir.</p>
-                        <div class="game-tags"><span class="game-tag">Aventura</span><span class="game-tag">Indie</span>
-                        </div>
-                        <span class="game-platforms">PC · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 4 -->
-                <div class="game-card fade-in" data-tags="estrategia simulacion" data-name="civilization vi">
-                    <div class="game-card-img">🏛️</div>
-                    <div class="game-card-body">
-                        <h3>Civilization VI</h3>
-                        <p class="game-reason">"Solo una partida más" y ya son las 5 de la mañana. Estrategia pura.</p>
-                        <div class="game-tags"><span class="game-tag">Estrategia</span><span
-                                class="game-tag">Simulación</span></div>
-                        <span class="game-platforms">PC · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 5 -->
-                <div class="game-card fade-in" data-tags="terror" data-name="resident evil 4 remake">
-                    <div class="game-card-img">🧟</div>
-                    <div class="game-card-body">
-                        <h3>Resident Evil 4 Remake</h3>
-                        <p class="game-reason">El remake perfecto. Acción, tensión y el mejor ritmo del survival horror.
-                        </p>
-                        <div class="game-tags"><span class="game-tag">Terror</span></div>
-                        <span class="game-platforms">PS5 · PS4 · Xbox · PC</span>
-                    </div>
-                </div>
-
-                <!-- 6 -->
-                <div class="game-card fade-in" data-tags="casual simulacion" data-name="stardew valley">
-                    <div class="game-card-img">🌾</div>
-                    <div class="game-card-body">
-                        <h3>Stardew Valley</h3>
-                        <p class="game-reason">Tu granja, tu pueblo, tu ritmo. El antiestrés definitivo para gamers.</p>
-                        <div class="game-tags"><span class="game-tag">Casual</span><span
-                                class="game-tag">Simulación</span></div>
-                        <span class="game-platforms">PC · PS4 · Xbox · Switch · Móvil</span>
-                    </div>
-                </div>
-
-                <!-- 7 -->
-                <div class="game-card fade-in" data-tags="accion coop gratis" data-name="fortnite">
-                    <div class="game-card-img">🎯</div>
-                    <div class="game-card-body">
-                        <h3>Fortnite</h3>
-                        <p class="game-reason">No solo es Battle Royale: LEGO, carreras, música... Un universo gratuito
-                            brutal.</p>
-                        <div class="game-tags"><span class="game-tag">Acción</span><span
-                                class="game-tag">Coop</span><span class="game-tag">Gratis</span></div>
-                        <span class="game-platforms">PC · PS5 · Xbox · Switch · Móvil</span>
-                    </div>
-                </div>
-
-                <!-- 8 -->
-                <div class="game-card fade-in" data-tags="aventura indie" data-name="celeste">
-                    <div class="game-card-img">⛰️</div>
-                    <div class="game-card-body">
-                        <h3>Celeste</h3>
-                        <p class="game-reason">Plataformas pixel-perfect con una historia sobre salud mental que te
-                            llega al alma.</p>
-                        <div class="game-tags"><span class="game-tag">Aventura</span><span class="game-tag">Indie</span>
-                        </div>
-                        <span class="game-platforms">PC · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 9 -->
-                <div class="game-card fade-in" data-tags="accion aventura" data-name="elden ring">
-                    <div class="game-card-img">🔥</div>
-                    <div class="game-card-body">
-                        <h3>Elden Ring</h3>
-                        <p class="game-reason">FromSoftware + mundo abierto. Desafiante, gigantesco e impresionante.</p>
-                        <div class="game-tags"><span class="game-tag">Acción</span><span
-                                class="game-tag">Aventura</span></div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox</span>
-                    </div>
-                </div>
-
-                <!-- 10 -->
-                <div class="game-card fade-in" data-tags="coop accion" data-name="it takes two">
-                    <div class="game-card-img">👫</div>
-                    <div class="game-card-body">
-                        <h3>It Takes Two</h3>
-                        <p class="game-reason">El mejor cooperativo de la historia. Obligatorio jugarlo en pareja o con
-                            un amigo.</p>
-                        <div class="game-tags"><span class="game-tag">Coop</span><span class="game-tag">Acción</span>
-                        </div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox</span>
-                    </div>
-                </div>
-
-                <!-- 11 -->
-                <div class="game-card fade-in" data-tags="simulacion casual" data-name="animal crossing: new horizons">
-                    <div class="game-card-img">🏝️</div>
-                    <div class="game-card-body">
-                        <h3>Animal Crossing: New Horizons</h3>
-                        <p class="game-reason">Tu isla, tus reglas, cero estrés. El relax que necesitas.</p>
-                        <div class="game-tags"><span class="game-tag">Simulación</span><span
-                                class="game-tag">Casual</span></div>
-                        <span class="game-platforms">Switch</span>
-                    </div>
-                </div>
-
-                <!-- 12 -->
-                <div class="game-card fade-in" data-tags="terror indie" data-name="phasmophobia">
-                    <div class="game-card-img">👁️</div>
-                    <div class="game-card-body">
-                        <h3>Phasmophobia</h3>
-                        <p class="game-reason">Cazar fantasmas con amigos. El terror coop más divertido y aterrador.</p>
-                        <div class="game-tags"><span class="game-tag">Terror</span><span class="game-tag">Indie</span>
-                        </div>
-                        <span class="game-platforms">PC · PS5 · Xbox</span>
-                    </div>
-                </div>
-
-                <!-- 13 -->
-                <div class="game-card fade-in" data-tags="aventura accion" data-name="red dead redemption 2">
-                    <div class="game-card-img">🤠</div>
-                    <div class="game-card-body">
-                        <h3>Red Dead Redemption 2</h3>
-                        <p class="game-reason">La mejor narrativa jamás contada en un videojuego. Arthur Morgan es
-                            leyenda.</p>
-                        <div class="game-tags"><span class="game-tag">Aventura</span><span
-                                class="game-tag">Acción</span></div>
-                        <span class="game-platforms">PC · PS4 · Xbox</span>
-                    </div>
-                </div>
-
-                <!-- 14 -->
-                <div class="game-card fade-in" data-tags="indie aventura" data-name="hades">
-                    <div class="game-card-img">🔱</div>
-                    <div class="game-card-body">
-                        <h3>Hades</h3>
-                        <p class="game-reason">Roguelike perfecto: combate adictivo, historia que avanza con cada
-                            muerte.</p>
-                        <div class="game-tags"><span class="game-tag">Indie</span><span class="game-tag">Aventura</span>
-                        </div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 15 -->
-                <div class="game-card fade-in" data-tags="estrategia" data-name="age of empires iv">
-                    <div class="game-card-img">🏰</div>
-                    <div class="game-card-body">
-                        <h3>Age of Empires IV</h3>
-                        <p class="game-reason">Estrategia en tiempo real clásica, renovada y accesible. Wololo.</p>
-                        <div class="game-tags"><span class="game-tag">Estrategia</span></div>
-                        <span class="game-platforms">PC · Xbox</span>
-                    </div>
-                </div>
-
-                <!-- 16 -->
-                <div class="game-card fade-in" data-tags="gratis accion coop" data-name="apex legends">
-                    <div class="game-card-img">🎖️</div>
-                    <div class="game-card-body">
-                        <h3>Apex Legends</h3>
-                        <p class="game-reason">El Battle Royale con mejor gunplay. Movimiento fluido y trabajo en
-                            equipo.</p>
-                        <div class="game-tags"><span class="game-tag">Gratis</span><span
-                                class="game-tag">Acción</span><span class="game-tag">Coop</span></div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 17 -->
-                <div class="game-card fade-in" data-tags="aventura accion" data-name="the witcher 3: wild hunt">
-                    <div class="game-card-img">🐺</div>
-                    <div class="game-card-body">
-                        <h3>The Witcher 3: Wild Hunt</h3>
-                        <p class="game-reason">RPG con las mejores misiones secundarias jamás escritas. Geralt de Rivia
-                            merece tu tiempo.</p>
-                        <div class="game-tags"><span class="game-tag">Aventura</span><span
-                                class="game-tag">Acción</span></div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 18 -->
-                <div class="game-card fade-in" data-tags="casual coop gratis" data-name="fall guys">
-                    <div class="game-card-img">🫘</div>
-                    <div class="game-card-body">
-                        <h3>Fall Guys</h3>
-                        <p class="game-reason">Minijuegos absurdos, risas aseguradas. Perfecto para desconectar.</p>
-                        <div class="game-tags"><span class="game-tag">Casual</span><span
-                                class="game-tag">Coop</span><span class="game-tag">Gratis</span></div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 19 -->
-                <div class="game-card fade-in" data-tags="indie" data-name="disco elysium">
-                    <div class="game-card-img">🔍</div>
-                    <div class="game-card-body">
-                        <h3>Disco Elysium</h3>
-                        <p class="game-reason">RPG sin combate. Todo es diálogo, decisiones y la mejor escritura del
-                            medio.</p>
-                        <div class="game-tags"><span class="game-tag">Indie</span></div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 20 -->
-                <div class="game-card fade-in" data-tags="simulacion estrategia" data-name="factorio">
-                    <div class="game-card-img">⚙️</div>
-                    <div class="game-card-body">
-                        <h3>Factorio</h3>
-                        <p class="game-reason">Automatización adictiva. Si te gusta optimizar, esto es tu droga.</p>
-                        <div class="game-tags"><span class="game-tag">Simulación</span><span
-                                class="game-tag">Estrategia</span></div>
-                        <span class="game-platforms">PC · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 21 -->
-                <div class="game-card fade-in" data-tags="terror accion" data-name="alan wake 2">
-                    <div class="game-card-img">🔦</div>
-                    <div class="game-card-body">
-                        <h3>Alan Wake 2</h3>
-                        <p class="game-reason">Thriller psicológico con la mejor dirección artística del año. Narrativa
-                            de otro nivel.</p>
-                        <div class="game-tags"><span class="game-tag">Terror</span><span class="game-tag">Acción</span>
-                        </div>
-                        <span class="game-platforms">PS5 · Xbox · PC</span>
-                    </div>
-                </div>
-
-                <!-- 22 -->
-                <div class="game-card fade-in" data-tags="indie coop" data-name="overcooked 2">
-                    <div class="game-card-img">🍳</div>
-                    <div class="game-card-body">
-                        <h3>Overcooked 2</h3>
-                        <p class="game-reason">Cocinar con amigos nunca fue tan caótico y divertido. Destructor de
-                            amistades.</p>
-                        <div class="game-tags"><span class="game-tag">Indie</span><span class="game-tag">Coop</span>
-                        </div>
-                        <span class="game-platforms">PC · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 23 -->
-                <div class="game-card fade-in" data-tags="gratis accion" data-name="genshin impact">
-                    <div class="game-card-img">✨</div>
-                    <div class="game-card-body">
-                        <h3>Genshin Impact</h3>
-                        <p class="game-reason">Mundo abierto enorme, combate espectacular y contenido infinito. Todo
-                            gratis.</p>
-                        <div class="game-tags"><span class="game-tag">Gratis</span><span class="game-tag">Acción</span>
-                        </div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Móvil</span>
-                    </div>
-                </div>
-
-                <!-- 24 -->
-                <div class="game-card fade-in" data-tags="aventura indie" data-name="outer wilds">
-                    <div class="game-card-img">🪐</div>
-                    <div class="game-card-body">
-                        <h3>Outer Wilds</h3>
-                        <p class="game-reason">Exploración espacial donde la curiosidad es tu única herramienta. Una
-                            experiencia irrepetible.</p>
-                        <div class="game-tags"><span class="game-tag">Aventura</span><span class="game-tag">Indie</span>
-                        </div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 25 -->
-                <div class="game-card fade-in" data-tags="accion" data-name="doom eternal">
-                    <div class="game-card-img">💀</div>
-                    <div class="game-card-body">
-                        <h3>DOOM Eternal</h3>
-                        <p class="game-reason">El FPS más frenético y brutal. Rip and tear hasta que no quede nada.</p>
-                        <div class="game-tags"><span class="game-tag">Acción</span></div>
-                        <span class="game-platforms">PC · PS5 · PS4 · Xbox · Switch</span>
-                    </div>
-                </div>
-
-                <!-- 26 -->
-                <div class="game-card fade-in" data-tags="estrategia indie" data-name="into the breach">
-                    <div class="game-card-img">🤖</div>
-                    <div class="game-card-body">
-                        <h3>Into the Breach</h3>
-                        <p class="game-reason">Estrategia por turnos perfecta. Cada decisión importa. Compacto y
-                            brillante.</p>
-                        <div class="game-tags"><span class="game-tag">Estrategia</span><span
-                                class="game-tag">Indie</span></div>
-                        <span class="game-platforms">PC · Switch · Móvil</span>
-                    </div>
-                </div>
-
-                <!-- 27 -->
-                <div class="game-card fade-in" data-tags="casual simulacion coop" data-name="minecraft">
-                    <div class="game-card-img">⛏️</div>
-                    <div class="game-card-body">
-                        <h3>Minecraft</h3>
-                        <p class="game-reason">Creatividad infinita. Construye lo que imagines, solo o con amigos.</p>
-                        <div class="game-tags"><span class="game-tag">Casual</span><span
-                                class="game-tag">Simulación</span><span class="game-tag">Coop</span></div>
-                        <span class="game-platforms">PC · PS5 · Xbox · Switch · Móvil</span>
-                    </div>
-                </div>
-
-                <!-- No results -->
-                <div class="no-results" id="no-results" style="display:none">
-                    <h3>Sin resultados</h3>
-                    <p>No hemos encontrado juegos con esos filtros. Prueba otra combinación o busca otro nombre.</p>
-                </div>
-
+            <div class="games-grid" id="games-grid">
+                <!-- Game cards loaded by JS from RAWG API -->
             </div>
+
+            <div class="no-results" id="no-results" style="display:none">
+                <h3>Sin resultados</h3>
+                <p>No hemos encontrado juegos con esos filtros. Prueba otra combinación o busca otro nombre.</p>
+            </div>
+
+            <button class="btn-load" id="load-more" style="display:none">Cargar más juegos</button>
         </div>
     </section>
 
@@ -437,7 +92,7 @@
             <div class="footer-inner">
                 <div class="footer-brand">
                     <div class="header-logo">
-                        <img src="assets/logo.png" alt="Logo La Biblioteca Gamer" width="40" height="40">
+                        <img src="assets/logo.png" alt="Logo La Biblioteca Gamer" width="36" height="36">
                         <span>Biblioteca Gamer</span>
                     </div>
                     <p>Recomendaciones honestas de videojuegos. Sin relleno, sin clickbait. Solo lo que merece tu
@@ -465,14 +120,14 @@
                 <div class="footer-social">
                     <a href="https://www.tiktok.com/@labibliotecagamer" target="_blank" rel="noopener"
                         aria-label="TikTok">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 24 24">
                             <path
                                 d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.67a8.2 8.2 0 0 0 4.76 1.51V6.73a4.83 4.83 0 0 1-1-.04z" />
                         </svg>
                     </a>
                     <a href="https://www.youtube.com/@labibliotecagamer" target="_blank" rel="noopener"
                         aria-label="YouTube">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 24 24">
                             <path
                                 d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.67 31.67 0 0 0 0 12a31.67 31.67 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.67 31.67 0 0 0 24 12a31.67 31.67 0 0 0-.5-5.81zM9.55 15.57V8.43L15.8 12l-6.25 3.57z" />
                         </svg>
